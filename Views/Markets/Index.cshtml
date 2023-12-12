@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<section style="background-color:#D3D3D3">
+    <div class="d-flex flex-row justify-content-md-around" style="background-color:#D3D3D3">
+        <div class="m-4">
+            <form action="/">
+                <div class="form-group" style="width: 300px">
+                    <select class="form-control  " id="location" name="location">
+                        <option>Location</option>
+                        <option>BarElias</option>
+                        <option>Zahle</option>
+                        <option>Beirut</option>
+                        <option>Marj</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="m-4" >
+            <div class="row">
+                <div class="form-outline" style="width: 900px">
+                    <input type="search" id="form1" class="form-control h-100 " placeholder="Search" />
+
+                </div>
+                <button type="button" class="btn btn-primary">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- markets -->
+
+<section>
+
+    <div id="market-cards" class="d-flex justify-content-around flex-wrap" style="background-color:#D3D3D3">
+        @foreach (var market in Model)
+        {
+            <div class="card p-4 m-4 align-content-center align-items-center justify-content-center shadow" style="width:350px; height:500px;border-radius: 25px;">
+                <img class="card-img-top" src="@market.Image" alt="Super1" style="width:100%; ">
+                <div class="card-body">
+                    <h4 class="card-title text-center" style="color:#6495ED;font-family:sans-serif; font-weight:bold">@market.Name</h4>
+                    <p class="card-text text-danger  text-center" style="color:	#8B0000; font-weight:bold">
+                        Opens: @market.Open
+                    </p>
+                    <p class="text-danger text-center" style="color:#8B0000; font-weight:bold">Closes: @market.Close</p>
+                    
+                </div>
+                <a asp-action="ViewItems" class="btn btn-primary btn-block gradient-custom-4 link-light" style="border-radius: 25px;">Start Shopping</a>
+            </div>
+        }
+    </div>
+</section>
